@@ -43,6 +43,7 @@ var reqHandlers = {
         console.err(e);
       }
       io.sockets.emit('newPkt', pkt);
+      res.send('Server GOT your data!');
     });
   }
 };

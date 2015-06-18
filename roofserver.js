@@ -29,6 +29,21 @@ var reqHandlers = {
       },
     };
     monitorAgent.init(); 
+  },
+  feedHumiHandler: function(req, res) {
+    var post_request_body = '';
+    req.on('data', function (data) {
+       post_request_body += data;
+    });
+    req.on('end', function (data) {
+      var pkt;
+      try {
+        pkt = JSON.parse(post_request_body);
+      } catch(e) {
+        console.err(e);
+      }
+      io.sockets.emit('newPkt', pkt);
+    });
   }
 };
 
@@ -37,6 +52,10 @@ app.use(express.static('public'));
 
 io.on('connection', function (socket) {  // connection setup for monitor.html
 	reqHandlers.monitorHandler(socket);
+});
+
+app.post('/feedhumi', function (req, res) {
+  reqHandlers.feedHumiHandler(req, res);
 });
 
 

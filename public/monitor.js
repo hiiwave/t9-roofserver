@@ -9,7 +9,7 @@ socket.on('date', function(data) {
 });
 
 socket.on('newPkt', function(pkt) {
-  var str = pkt.date + '<br>' + pkt.noise + '<br>' + pkt.temparature + '<br>' + pkt.humidity + '<br>' + pkt.lat + '<br>' + pkt.lng;
-  $('#newData').html(str);
+  var str = pkt.humi
+  $('#humidity').html(str);
   $('#countData').html(1 + parseInt($('#countData').html()));
 });

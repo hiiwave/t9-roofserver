@@ -24,14 +24,14 @@
           color: #000;
       }
 
-      #div1, #div2, #div3, #div4 {
+      #p1, #div2, #div3, #div4 {
           width: 33%;
           height: 200px;
           box-sizing: border-box;
           float: left;
       }
 
-      #div1 .arc {
+      #p1 .arc {
           stroke-weight: 0.1;
           fill: #f0a417;
       }
@@ -69,13 +69,13 @@
   </body>
   <script type="text/javascript">
 
-        var div1=d3.select(document.getElementById('div1'));
+        var div1=d3.select(document.getElementById('p1'));
 
         start();
 
         function create(){
           
-          var rp1 = radialProgress(document.getElementById('div1'))
+          var rp1 = radialProgress(document.getElementById('p1'))
                   .label("HUMIDITY")
                   .onClick(onClick1)
                   .diameter(150)
@@ -83,7 +83,7 @@
                   .render();
         }
         function update(){
-          radialProgress(document.getElementById('div1'))
+          radialProgress(document.getElementById('p1'))
           .diameter(150)
           .value((Math.random() * 100) + 1)
           .render();
@@ -94,8 +94,8 @@
         }
 
         function start() {
-        create();
-        setInterval(update,5000);          
+          create();
+          setInterval(update,5000);          
         }
   </script>
 </html>

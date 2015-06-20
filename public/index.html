@@ -76,7 +76,7 @@
         start();
 
         function create(){
-          var hu = Number(document.getElementById("hu_num")) + "<br>";
+          var hu = socket.str;
           var rp1 = radialProgress(document.getElementById('div1'))
                   .label("HUMIDITY")
                   .onClick(onClick1)

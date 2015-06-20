@@ -26,10 +26,11 @@ bindSocketEvents = function() {
 };
 
 drawer = {
+    rp1: undefined,
 	init: function(pkt) {
         var div1=d3.select(document.getElementById('div1'));
  
-		var rp1 = radialProgress(document.getElementById('div1'))
+		drawer.rp1 = radialProgress(document.getElementById('div1'))
                 .label("HUMIDITY")
                 .onClick(onClick1)
                 .diameter(150)
@@ -39,7 +40,8 @@ drawer = {
     update: function(pkt) {
 
 
-		radialProgress(document.getElementById('div1'))
+		// radialProgress(document.getElementById('div1'))
+                drawer.rp1
 		  .diameter(150)
 		  .value(pkt)
 		  .render();

@@ -10,6 +10,7 @@ socket.on('date', function(data) {
 
 socket.on('newPkt', function(pkt) {
   var str = pkt.humi;
+  $('#hu_num').text(str);
   $('#humidity').html(str);
   $('#countData').html(1 + parseInt($('#countData').html()));
 });

@@ -24,14 +24,14 @@
           color: #000;
       }
 
-      #p1, #div2, #div3, #div4 {
+      #div1, #div2, #div3, #div4 {
           width: 33%;
           height: 200px;
           box-sizing: border-box;
           float: left;
       }
 
-      #p1 .arc {
+      #div1 .arc {
           stroke-weight: 0.1;
           fill: #f0a417;
       }
@@ -59,9 +59,10 @@
       <p>This is our roof monitor</p>
       <p>Clock: <span id="date"></span></p>
 
-      <p id="main" style="width:1000px; height:200px; margin: 0px auto; ">
-        <p id = "p1"></p>
-      </p>
+      <div id="main" style="width:1000px; height:200px; margin: 0px auto; ">
+        <div id = "p1"></div>
+      </div>
+
       <p>Humidity: <span id="humidity">(loading..)</span> %RH</p>
       <p>Data received: <span id='countData'>0</span></p>
       <!-- <img id="newImg" src='/image/No_Image_Available.png'> -->
@@ -69,13 +70,13 @@
   </body>
   <script type="text/javascript">
 
-        var div1=d3.select(document.getElementById('p1'));
+        var div1=d3.select(document.getElementById('div1'));
 
         start();
 
         function create(){
           
-          var rp1 = radialProgress(document.getElementById('p1'))
+          var rp1 = radialProgress(document.getElementById('div1'))
                   .label("HUMIDITY")
                   .onClick(onClick1)
                   .diameter(150)
@@ -83,7 +84,7 @@
                   .render();
         }
         function update(){
-          radialProgress(document.getElementById('p1'))
+          radialProgress(document.getElementById('div1'))
           .diameter(150)
           .value((Math.random() * 100) + 1)
           .render();

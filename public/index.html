@@ -85,9 +85,10 @@
                   .render();
         }
         function update(){
+          var hu = socket.str;
           radialProgress(document.getElementById('div1'))
           .diameter(150)
-          .value((Math.random() * 100) + 1)
+          .value(hu)
           .render();
         }
         function onClick1() {

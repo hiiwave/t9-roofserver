@@ -4,7 +4,7 @@ var drawer, bindSocketEvents;
 
 $(document).ready(function() {
   bindSocketEvents();
-  drawer.init();
+  drawer.init(50);
 });
 
 bindSocketEvents = function() {
@@ -40,8 +40,8 @@ drawer = {
     update: function(pkt) {
 
 
-		// radialProgress(document.getElementById('div1'))
-                drawer.rp1
+		radialProgress(document.getElementById('div1'))
+             //   drawer.rp1
 		  .diameter(150)
 		  .value(pkt)
 		  .render();

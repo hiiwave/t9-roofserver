@@ -76,20 +76,27 @@
         start();
 
         function create(){
-          var hu = socket.str;
-          var rp1 = radialProgress(document.getElementById('div1'))
-                  .label("HUMIDITY")
-                  .onClick(onClick1)
-                  .diameter(150)
-                  .value(hu)
-                  .render();
+          socket.on('newPkt', function(pkt) {
+            var str = pkt.humi;
+
+            var rp1 = radialProgress(document.getElementById('div1'))
+                    .label("HUMIDITY")
+                    .onClick(onClick1)
+                    .diameter(150)
+                    .value(str)
+                    .render();
+          });
         }
+
         function update(){
-          var hu = socket.str;
-          radialProgress(document.getElementById('div1'))
-          .diameter(150)
-          .value(hu)
-          .render();
+          socket.on('newPkt', function(pkt) {
+            var str = pkt.humi;
+
+            radialProgress(document.getElementById('div1'))
+            .diameter(150)
+            .value(str)
+            .render();
+          });
         }
         function onClick1() {
             deselect();

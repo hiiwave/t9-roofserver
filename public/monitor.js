@@ -4,7 +4,8 @@ var drawer, bindSocketEvents;
 
 $(document).ready(function() {
   bindSocketEvents();
-  drawer.init(50);
+  drawer.init("50");
+  drawer.update("50");
 });
 
 bindSocketEvents = function() {
@@ -28,28 +29,22 @@ bindSocketEvents = function() {
 drawer = {
     rp1: undefined,
 	init: function(pkt) {
-        var div1=d3.select(document.getElementById('div1'));
- 
 		drawer.rp1 = radialProgress(document.getElementById('div1'))
                 .label("HUMIDITY")
-                .onClick(onClick1)
                 .diameter(150)
                 .value(pkt)
                 .render();
     },
     update: function(pkt) {
-
-
-		radialProgress(document.getElementById('div1'))
-             //   drawer.rp1
+        drawer.rp1
 		  .diameter(150)
 		  .value(pkt)
 		  .render();
 	},
 
 	onClick1: function() {
-	    deselect();
-	    div1.attr("class","selectedRadial");
+	    // deselect();
+	    // div1.attr("class","selectedRadial");
 	},
 
     

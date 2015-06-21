@@ -37,7 +37,6 @@ drawer = {
     },
     update: function(pkt) {
         drawer.rp1
-		  .diameter(150)
 		  .value(pkt)
 		  .render();
 	},

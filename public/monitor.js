@@ -1,12 +1,36 @@
 var socket = io.connect();
 var drawer, bindSocketEvents;
-
+var senseSlider;
+var threshold = 60;
 
 $(document).ready(function() {
   bindSocketEvents();
   drawer.init("50");
   drawer.update("50");
+  senseSlider.init();
 });
+
+senseSlider = {
+	init: function() {
+		this.bindEvents();
+	},
+	bindEvents: function() {
+		$( "#sensitivity" ).slider({
+	    value: 60,
+	    orientation: "horizontal",
+	    range: "min",
+	    max: 80,
+	    min: 50,
+	    value: 65,
+	    slide: senseSlider.refresh,
+	    animate: true
+	  });
+	},
+	refresh: function() {
+		console.log("sensitivity = " + $("#sensitivity").slider('value'));
+	}
+}
+
 
 bindSocketEvents = function() {
 	socket.on('connect', function () {
@@ -21,8 +45,13 @@ bindSocketEvents = function() {
 	  var str = pkt.humi;
 	  $('#humidity').html(str);
 	  $('#countData').html(1 + parseInt($('#countData').html()));
-
 	  drawer.update(str);
+
+	  if (pkt.humi < threshold) {
+	  	$("#state").html("Rain Safety");
+	  } else {
+	  	$("#state").html("Rain Hazard");
+	  }
 	});
 };
 

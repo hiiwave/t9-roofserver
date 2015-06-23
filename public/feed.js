@@ -1,4 +1,4 @@
-function PacketGen(date, noise, temparature, humidity, lat, lng) {
+function PacketGen(humidity, lat, lng) {
   this.date = date;
   this.noise = noise;
   this.temparature = temparature;
@@ -29,9 +29,16 @@ var feed = {
     xhr.onload = sendSuccess;
     xhr.send(data); 
   },
+  sim_max: 75,
   action : function() {
-    var packet = new PacketGen(new Date(), randU(0, 0.5), randU(20, 25), randU(50, 70),
-                             randU(25.0173, 25.0174), randU(121.5394, 121.5395) );
+    humidity = randU(feed.sim_max - 0.8, feed.sim_max);
+    feed.sim_max -= 0.8;
+    if (feed.sim_max < 55) {
+      feed.sim_max = 75;
+    }
+    var packet = {
+      humi: humidity
+    };
     feed.postData(JSON.stringify(packet));
     feed.ready = false;
   }

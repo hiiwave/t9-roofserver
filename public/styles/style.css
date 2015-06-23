@@ -76,16 +76,32 @@
 }
 
 #div1, #div2, #div3, #div4 {
+    margin-left: 25px;
     width: 33%;
     height: 200px;
     box-sizing: border-box;
-    float: left;
+    /*float: left;*/
 }
 
 #div1 .arc {
     stroke-weight: 0.1;
     fill: #f0a417;
 }
+
+#state-label {
+    margin-left: 30px;
+    margin-bottom: 50px;
+}
+
+#adj-sensitivity {
+    margin-left: 30px;
+}
+
+#sensitivity {
+    width: 160px;
+    margin:20px;
+}
+
 
 
 .selectedRadial {

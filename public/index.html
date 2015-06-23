@@ -4,27 +4,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
     <title>Monitor data</title>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="scripts/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/monitor.js"></script>
     <script type="text/javascript" src="scripts/d3.min.js"></script>
     <script type="text/javascript" src="scripts/radialProgress.js"></script>
 
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="styles/style.css">
  
   </head>
   <body>
     <div data-role="page">
-      <p>This is our roof monitor</p>
-      <p>Clock: <span id="date"></span></p>
+      <!-- <p>This is our roof monitor</p> -->
+      <!-- <p>Clock: <span id="date"></span></p> -->
       <br />
 
-      <div id="main" style="width:1000px; height:200px; margin: 0px; ">
+      <div id="main" style="width:1000px; height:160px; margin: 0px; ">
         <div id = "div1"></div>
       </div>
+      <div id="state-label">
+        <h3><span class="label label-primary" id="state">Rain Hazard!</span></h3>
+      </div>
+      
+      <!-- <div>
+        <button class="btn btn-default" type="submit">Button</button>
+        <input class="btn btn-default" type="button" value="Input">
+        <input class="btn btn-default" type="submit" value="Submit">
+      </div> -->
 
-      <p>Humidity: <span id="humidity">(loading..)</span> %RH</p>
+      <!-- <p class="ui-state-default ui-corner-all ui-helper-clearfix" style="padding:4px;">
+        <span class="ui-icon ui-icon-volume-on" style="float:left; margin:-2px 5px 0 0;"></span>
+        Adjust sensitivity
+      </p> -->
+      <div id="adj-sensitivity">
+        <span class="glyphicon glyphicon-tint"></span>
+        <span>Adjust Sensitivity: </span>
+      </div>
+      <div id="sensitivity"></div>
+
+       
+
+ <!--      <p>Humidity: <span id="humidity">(loading..)</span> %RH</p>
       <p>Data received: <span id='countData'>0</span></p>
-      <!-- <img id="newImg" src='/image/No_Image_Available.png'> -->
+      <img id="newImg" src='/image/No_Image_Available.png'> -->
     </div>
   </body>
 
